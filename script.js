@@ -5,9 +5,12 @@ class Usuario {
     }
 }
 
-do{
-    nicknameUser = prompt("Ingrese un nickname").toLowerCase
-}while(nicknameUser == "")
+function ingresarNick() {
+    let userNickname = prompt("Ingrese un nickname")
+    alert("Su nickname es " + userNickname)
+}
+
+ingresarNick()
 
 // Palabras aleatorias para dibujar
 
