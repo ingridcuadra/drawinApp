@@ -4,20 +4,6 @@ const colorUser = document.getElementById("color")
 const lineaUser = document.getElementById("linea")
 const palabrAleatorias = document.getElementById("palabrAleatorias")
 
-// El usuario va a poder ingregar el nickname que desee
-class Usuario {
-    constructor(nickname) {
-        this.nickname = nickname
-    }
-}
-
-function ingresarNick() {
-    let userNickname = prompt("Ingrese un nickname")
-    alert("Su nickname es " + userNickname)
-}
-
-ingresarNick()
-
 // Palabras aleatorias para dibujar
 
 const objetos = ["Goma de borrar", "Lápiz", "Lapicera", "Mouse", "Televisor", "Inodoro", "Cuchara", "Bufanda", "Arroz", "Teléfono celular"]
@@ -33,14 +19,41 @@ palabrAleatorias.innerText = objetos[objetoAleatorio] + " " + situaciones[situac
 
 // Funciones principales para dibujar
 
-function encontrarPosMou (canvas, evt) {
-    return {
-        x: evt.clientX, 
-        y: evt.clientY
+let dibujando = false
+
+function dibujar(evento) {
+    x = evento.clientX - canvas.offsetLeft
+    y = evento.clientY - canvas.offsetTop
+
+    if(dibujando == true) {
+        context.lineTo(x, y)
+        console.log("Posición x:" + x + " y:" + y)
+        context.stroke()
+        context.lineCap = "round"
+        context.lineJoin = "round"
+
     }
 }
 
-canvas.addEventListener("mousemove", function(evt) {
-    const mousePos = encontrarPosMou(canvas, evt)
-    console.log(mousePos.x, mousePos.y)
+canvas.addEventListener("mousemove", dibujar)
+
+canvas.addEventListener("mousedown", function() {
+    dibujando = true
+    context.beginPath()
+    context.moveTo(x, y)
+    console.log("Posición Inicial x:" + x + " y:" + y)
+    canvas.addEventListener("mousemove", dibujar)
 })
+
+canvas.addEventListener("mouseup", function() {
+    dibujando = false
+})
+
+function cambiarColor(color) {
+    context.strokeStyle = color.value
+}
+
+function cambiarLinea(linea) {
+    context.lineWidth = linea.value
+    document.getElementById("valorLinea").innerText = linea.value
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Juego</title>
+</head>
+<body>
+    <main>
+        <p id="palabrAleatorias">Oración aleatoria</p>
+        <canvas id="canvas"></canvas>
+        <div class="opcionesCanvas">
+            <input type="color" id="color" class="opcionCanvas opcionColor" onchange="cambiarColor(this)">
+            <input type="range" id="linea" class="opcionCanvas" onchange="cambiarLinea(this)" min="1" max="50" value="1"><span id="valorLinea">1</span>
+        </div>
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
