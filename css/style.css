@@ -21,11 +21,23 @@ body{
     margin-top: 300px;
     width: 400px;
     height: 70px;
-    background-color: #ffe2e8;
-    border: palevioletred solid 3px;
+    background-color: #f7c7d1;
+    border: #bb3864 solid 3px;
     border-radius: 12px;
     text-align: center;
     font-size: 30px;
+}
+.botonAceptar{
+    font-size: 20px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
+    background-color: #fff2f5;
+    border: #cda5ae solid 3px;
+    color: #94767c;
+}
+.botonAceptar:hover{
+    cursor: pointer;
 }
 a{
     text-decoration: none;
