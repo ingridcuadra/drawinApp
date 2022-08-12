@@ -11,12 +11,6 @@ body{
     justify-content: center;
     align-items: center;
 }
-.containerBtnJugar{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 #userNickname{
     margin-top: 300px;
     width: 400px;
@@ -38,6 +32,12 @@ body{
 }
 .botonAceptar:hover{
     cursor: pointer;
+}
+.containerBtnJugar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 a{
     text-decoration: none;

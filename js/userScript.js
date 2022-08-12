@@ -18,5 +18,9 @@ form.addEventListener("submit", function(e) {
     usuarios.push(userNickname)
     console.log(userNickname)
     form.reset()
-    userIngresado.innerHTML = `<p>¿List@ para jugar, ${userNickname}?</p>`
+    userIngresado.innerHTML = `
+    <div class="containerBtnJugar">
+        <p>¿List@ para jugar, ${userNickname}?</p>
+        <a class="botonJugar" href="./sections/juego.html">Jugar</a>
+    </div>`
 })
