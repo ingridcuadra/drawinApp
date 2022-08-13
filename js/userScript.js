@@ -16,7 +16,7 @@ form.addEventListener("submit", function(e) {
     e.preventDefault()
     const userNickname = document.getElementById("userNickname").value
     usuarios.push(userNickname)
-    console.log(userNickname)
+    localStorage.setItem("usuarios", JSON.stringify(usuarios))
     form.reset()
     userIngresado.innerHTML = `
     <div class="containerBtnJugar">
@@ -24,3 +24,11 @@ form.addEventListener("submit", function(e) {
         <a class="botonJugar" href="./sections/juego.html">Jugar</a>
     </div>`
 })
+
+let nickname
+
+if(localStorage.getItem("usuarios")) {
+    nickname = JSON.parse(localStorage.getItem("usuarios"))
+} else {
+    localStorage.setItem("usuarios", JSON.stringify(usuarios))
+}
