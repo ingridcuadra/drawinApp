@@ -1,3 +1,5 @@
+// Interacción con HTML
+
 const canvas = document.getElementById("canvas")
 const context = canvas.getContext("2d")
 const colorUser = document.getElementById("color")
@@ -27,7 +29,6 @@ function dibujar(evento) {
 
     if(dibujando == true) {
         context.lineTo(x, y)
-        console.log("Posición x:" + x + " y:" + y)
         context.stroke()
         context.lineCap = "round"
         context.lineJoin = "round"
@@ -41,7 +42,6 @@ canvas.addEventListener("mousedown", function() {
     dibujando = true
     context.beginPath()
     context.moveTo(x, y)
-    console.log("Posición Inicial x:" + x + " y:" + y)
     canvas.addEventListener("mousemove", dibujar)
 })
 
@@ -57,3 +57,27 @@ function cambiarLinea(linea) {
     context.lineWidth = linea.value
     document.getElementById("valorLinea").innerText = linea.value
 }
+
+// Función para calcular el tiempo restante
+
+const tiempoRestante = document.getElementById("tiempoRestante")
+const palabrasTiempo = document.getElementById("palabrasTiempo")
+
+let tiempo = 60
+
+const tiempo0 = setInterval(function() {
+    const restarTiempo = tiempo--
+    tiempoRestante.innerHTML = `<p id="tiempoRestante">Tiempo: ${tiempo} segundos</p>`
+
+    if(restarTiempo == 0) {
+        clearInterval(tiempo0)
+
+        dibujando = false
+        
+        palabrasTiempo.innerHTML = `
+        <div id="palabrasTiempo">
+            <p id="palabrAleatorias">Se acabó el tiempo</p>
+            <p id="tiempoRestante">Adivinen, ¿qué dibujó?</p>
+        </div>`
+    }
+}, 1000)

@@ -1,12 +1,5 @@
 // Registro del usuario
 
-// function ingresarNick() {
-//     let userNickname = prompt("Ingrese un nickname")
-//     alert("¡Bienvenid@, " + userNickname + "!")
-// }
-
-// ingresarNick()
-
 const form = document.getElementById("form")
 const userIngresado = document.getElementById("userIngresado")
 
@@ -27,8 +20,4 @@ form.addEventListener("submit", function(e) {
 
 let nickname
 
-if(localStorage.getItem("usuarios")) {
-    nickname = JSON.parse(localStorage.getItem("usuarios"))
-} else {
-    localStorage.setItem("usuarios", JSON.stringify(usuarios))
-}
+(localStorage.getItem("usuarios")) ? nickname = JSON.parse(localStorage.getItem("usuarios")) : localStorage.setItem("usuarios", JSON.stringify(usuarios))
