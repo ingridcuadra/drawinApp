@@ -11,8 +11,25 @@ body{
     justify-content: center;
     align-items: center;
 }
+#avatarUser{
+    display: flex;
+    flex-direction: row;
+}
+img{
+    margin: 80px 7px 7px 7px;
+    border: #cda5ae solid 3px;
+    border-radius: 12px;
+    width: 200px;
+    height: 200px;
+    transition: 0.5s;
+}
+img:hover{
+    transform: scale(1.05);
+    transition: all;
+    transition-duration: 0.5s;
+}
 #userNickname{
-    margin-top: 300px;
+    margin-top: 60px;
     width: 400px;
     height: 70px;
     background-color: #f7c7d1;

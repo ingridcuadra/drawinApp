@@ -1,4 +1,32 @@
-// Registro del usuario
+// Elección de Atavar
+
+const avatarUser = document.getElementById("avatarUser")
+
+fetch('../json/avatares.json')
+.then(response => response.json())
+.then(avatares => {
+    avatares.forEach((avatar, indice) => {
+        avatarUser.innerHTML += `
+        <div id="avatarUser">
+            <img src="./img/${avatar.img}" alt="">
+        </div>
+        `
+        console.log(avatar.nombre)
+    })
+    
+    avatares.forEach((avatar, indice) => {
+        const avatarImg = document.getElementById(`avatares${indice}`)
+        avatarImg.children[0].children[0].addEventListener('mouseDown', () => {
+            avatarUser.innerHTML += `
+            <div id="avatarUser">
+                <p>Elegiste a ${avatar.nombre}</p>
+            </div>
+            `
+        })
+    })
+})
+
+// Elección de Nickname
 
 const form = document.getElementById("form")
 const userIngresado = document.getElementById("userIngresado")
