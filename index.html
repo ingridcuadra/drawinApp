@@ -9,7 +9,9 @@
 </head>
 <body>
     <div class="registro">
-        <div id="avatarUser">
+        <div>
+            <button id="botonAvatar">Elegir avatar</button>
+            <div id="avatarUser"></div>
         </div>
         <form id="form">
             <input type="text" placeholder="Ingrese un nickname" name="nickname" id="userNickname" value="">
@@ -18,8 +20,18 @@
     </div>
     <div class="containerBtnJugar">
         <p id="userIngresado"></p>
-        <a href="./sections/juego.html"></a>
     </div>
-    <script src="./js/userScript.js"></script>
+    <section id="juego">
+        <div id="palabrasTiempo">
+            <p id="palabrAleatorias">Oración aleatoria</p>
+            <p id="tiempoRestante">Tiempo : 0</p>
+        </div>
+        <canvas id="canvas"></canvas>
+        <div class="opcionesCanvas">
+            <input type="color" id="color" class="opcionCanvas opcionColor" onchange="cambiarColor(this)">
+            <input type="range" id="linea" class="opcionCanvas" onchange="cambiarLinea(this)" min="1" max="50" value="1"><span id="valorLinea">1</span>
+        </div>
+    </section>
+    <script src="script.js"></script>
 </body>
 </html>
