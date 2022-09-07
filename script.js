@@ -49,7 +49,7 @@ form.addEventListener("submit", function(e) {
     form.reset()
     userIngresado.innerHTML = `
     <div class="containerBtnJugar">
-        <p>¿List@ para jugar, ${userNickname}?</p>
+        <p>¿List@ para jugar, ${userNickname} 🧸?</p>
     </div>`
 })
 
@@ -71,7 +71,7 @@ const situacionAleatoria = Math.floor(Math.random() * situaciones.length)
 const animales = ["con un gato", "con un leopardo", "con un lémur", "con un mono", "con una tortuga", "con una jirafa", "con un elefante", "con un perro", "con una paloma", "con un sapo"]
 const animalAleatorio = Math.floor(Math.random() * animales.length)
 
-palabrAleatorias.innerText = objetos[objetoAleatorio] + " " + situaciones[situacionAleatoria] + " " + animales[animalAleatorio]
+// palabrAleatorias.innerText = objetos[objetoAleatorio] + " " + situaciones[situacionAleatoria] + " " + animales[animalAleatorio]
 
 // Funciones principales para dibujar
 
@@ -117,18 +117,30 @@ function cambiarLinea(linea) {
     document.getElementById("valorLinea").innerText = linea.value
 }
 
-// Función para calcular el tiempo del juego
+// Comenzar juego
 
-const tiempoRestante = document.getElementById("tiempoRestante")
-const palabrasTiempo = document.getElementById("palabrasTiempo")
+const botonJugar = document.getElementById("botonJugar")
+const contBtnJugar = document.getElementById("containerBtnJugar")
 
-let tiempo = 60
+botonJugar.addEventListener('click', () => {
 
-const tiempo0 = setInterval(function() {
-    const restarTiempo = tiempo--
-    tiempoRestante.innerHTML = `<p id="tiempoRestante">Tiempo: ${tiempo} segundos</p>`
+    // Mostrar en pantalla las oraciones para dibujar
 
-    if(restarTiempo == 0) {
+    palabrAleatorias.innerText = objetos[objetoAleatorio] + " " + situaciones[situacionAleatoria] + " " + animales[animalAleatorio]
+
+
+    // Función para calcular el tiempo del juego
+
+    const tiempoRestante = document.getElementById("tiempoRestante")
+    const palabrasTiempo = document.getElementById("palabrasTiempo")
+
+    let tiempo = 60
+
+    const tiempo0 = setInterval(function() {
+        const restarTiempo = tiempo--
+        tiempoRestante.innerHTML = `<p id="tiempoRestante">Tiempo: ${tiempo} segundos</p>`
+
+        if(restarTiempo == 0) {
         clearInterval(tiempo0)
 
         canvas.addEventListener('mousedown', function() {
@@ -139,7 +151,12 @@ const tiempo0 = setInterval(function() {
         })
         
         palabrasTiempo.innerHTML = `
-        <p id="palabrAleatorias">Se acabó el tiempo</p>
-        <p id="tiempoRestante">Adivinen, ¿qué dibujó?</p>`
-    }
-}, 1000)
+        <p id="palabrAleatorias">Se acabó el tiempo, mostrale tu dibujo a un amig@</p>
+        <p id="tiempoRestante">Adiviná, ¿qué dibujó? 🤪</p>`
+        }
+    }, 1000)
+
+    // Ocultar botón "Jugar"
+
+    contBtnJugar.innerHTML = ""
+})

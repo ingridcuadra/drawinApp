@@ -58,14 +58,6 @@ form{
 .botonAceptar:hover{
     cursor: pointer;
 }
-#juego{
-    margin: 50px;
-    border: #bb3864 solid 3px;
-    border-radius: 12px;
-    box-shadow: 8px 8px #ab8d98;
-    grid-area: juego;
-    background: #ffd1dc;
-}
 #botonAvatar{
     font-size: 20px;
     padding: 20px;
@@ -94,6 +86,26 @@ img:hover{
     transform: scale(1.05);
     transition: all;
     transition-duration: 0.5s;
+}
+#juego{
+    margin: 50px;
+    border: #bb3864 solid 3px;
+    border-radius: 12px;
+    box-shadow: 8px 8px #ab8d98;
+    grid-area: juego;
+    background: #ffd1dc;
+}
+#botonJugar{
+    font-size: 20px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
+    background-color: #fff2f5;
+    border: #cda5ae solid 3px;
+    color: #94767c;
+}
+#botonJugar:hover{
+    cursor: pointer;
 }
 a{
     color: rgb(0, 0, 0);
