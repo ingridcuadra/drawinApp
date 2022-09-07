@@ -15,7 +15,6 @@ fetch('./json/avatares.json')
     avatares.forEach((avatar, indice) => {
         botonAvatar.addEventListener('click', async () => {
             const avatarBDD = await obtenerAvatar
-            console.log(avatarBDD)
             avatarUser.innerHTML += `
             <div id="avatares${indice}">
                 <div id="avatarUser">
@@ -30,7 +29,6 @@ fetch('./json/avatares.json')
         const avatarImg = document.getElementById(`avatares${indice}`)
         avatarImg.children[0].children[0].addEventListener('click', () => {
             avatarUser.innerHTML += `<p>Elegiste a ${avatar.nombre}</p>`
-            console.log(avatar.nombre)
         })
     })
     
@@ -52,13 +50,13 @@ form.addEventListener("submit", function(e) {
     userIngresado.innerHTML = `
     <div class="containerBtnJugar">
         <p>¿List@ para jugar, ${userNickname}?</p>
-        <button id="botonJugar">Jugar</button>
     </div>`
 })
 
 let nickname
 
 (localStorage.getItem("usuarios")) ? nickname = JSON.parse(localStorage.getItem("usuarios")) : localStorage.setItem("usuarios", JSON.stringify(usuarios))
+
 
 // Palabras aleatorias para dibujar
 
