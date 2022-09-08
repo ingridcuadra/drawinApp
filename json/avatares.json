@@ -4,11 +4,35 @@
         "img": "avatarHenry.jpg"
     },
     {
+        "nombre": "Evil Henry",
+        "img": "avatarEvilHenry.jpg"
+    },
+    {
+        "nombre": "Golden Henry",
+        "img": "avatarGoldenHenry.jpg"
+    },
+    {
         "nombre": "Kitty",
         "img": "avatarKitty.jpg"
     },
     {
+        "nombre": "Spidey",
+        "img": "avatarSpidey.jpg"
+    },
+    {
         "nombre": "Yee Haw",
         "img": "avatarYeeHaw.jpg"
+    },
+    {
+        "nombre": "Sam",
+        "img": "avatarSam.jpg"
+    },
+    {
+        "nombre": "Maria Jose",
+        "img": "avatarMariaJose.jpg"
+    },
+    {
+        "nombre": "Binnie",
+        "img": "avatarBinnie.jpg"
     }
 ]
