@@ -71,8 +71,9 @@ form{
     cursor: pointer;
 }
 #avatarUser{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
 }
 img{
     margin: 20px 7px 7px 7px;
@@ -86,6 +87,18 @@ img:hover{
     transform: scale(1.05);
     transition: all;
     transition-duration: 0.5s;
+}
+#botonSelect{
+    font-size: 15px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+    background-color: #fff7f9;
+    border: #d4b2ba solid 3px;
+    color: #94767c;
+}
+#botonSelect:hover{
+    cursor: pointer;
 }
 #juego{
     margin: 50px;

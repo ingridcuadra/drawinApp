@@ -1,37 +1,39 @@
+"use strict";
+
 // Elección de Atavar
 
 const botonAvatar = document.getElementById("botonAvatar")
 const avatarUser = document.getElementById("avatarUser")
 
-async function obtenerAvatar() {
-    const response = await fetch('./json/avatares.json')
-    const avatares = await response.json()
-    return avatares
-}
-
 fetch('./json/avatares.json')
 .then(response => response.json())
 .then(avatares => {
+    console.log(avatares)
     avatares.forEach((avatar, indice) => {
-        botonAvatar.addEventListener('click', async () => {
-            const avatarBDD = await obtenerAvatar
+        botonAvatar.addEventListener('click', () => {
             avatarUser.innerHTML += `
-            <div id="avatares${indice}">
+            <div id="avatarSelect${indice}">
                 <div id="avatarUser">
                     <img src="./img/${avatar.img}" alt="">
+                    <p class="avatarName">${avatar.nombre}</p>
+                    <button id="botonSelect">Seleccionar</button>
                 </div>
             </div>
             `
         })
     })
-    
     avatares.forEach((avatar, indice) => {
-        const avatarImg = document.getElementById(`avatares${indice}`)
-        avatarImg.children[0].children[0].addEventListener('click', () => {
-            avatarUser.innerHTML += `<p>Elegiste a ${avatar.nombre}</p>`
+        const avatarSelect = document.getElementById(`avatarSelect${indice}`)
+        avatarSelect.children[0].children[2].addEventListener('click', () => {
+            avatarUser.innerHTML += `
+            <div id="avatarUser">
+                <img src="./img/${avatar.img}" alt="">
+                <p class="avatarName">Elegiste a ${avatar.nombre}</p>
+            </div>
+            `
         })
     })
-    
+    console.log(avatares)
 })
 
 // Elección de Nickname
