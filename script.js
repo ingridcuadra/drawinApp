@@ -1,43 +1,22 @@
-"use strict";
-
-// Elección de Atavar
-
-const botonAvatar = document.getElementById("botonAvatar")
+// Conseguir un Atavar
 const avatarUser = document.getElementById("avatarUser")
+const botonAvatar = document.getElementById("botonAvatar")
 
 fetch('./json/avatares.json')
 .then(response => response.json())
 .then(avatares => {
     console.log(avatares)
-    avatares.forEach((avatar, indice) => {
-        botonAvatar.addEventListener('click', () => {
-            avatarUser.innerHTML += `
-            <div id="avatarSelect${indice}">
-                <div id="avatarUser">
-                    <img src="./img/${avatar.img}" alt="">
-                    <p class="avatarName">${avatar.nombre}</p>
-                    <button id="botonSelect">Seleccionar</button>
-                </div>
-            </div>
-            `
-        })
+    const avatarAleatorio = Math.floor(Math.random() * avatares.length)
+
+    botonAvatar.addEventListener('click', (avatar) => {
+        avatarUser.innerHTML = `Conseguiste a ${avatares[avatarAleatorio].nombre}
+        <img src="./img/${avatares[avatarAleatorio].img}" alt="">
+        `
+        botonAvatar.disabled = true
     })
-    avatares.forEach((avatar, indice) => {
-        const avatarSelect = document.getElementById(`avatarSelect${indice}`)
-        avatarSelect.children[0].children[2].addEventListener('click', () => {
-            avatarUser.innerHTML += `
-            <div id="avatarUser">
-                <img src="./img/${avatar.img}" alt="">
-                <p class="avatarName">Elegiste a ${avatar.nombre}</p>
-            </div>
-            `
-        })
-    })
-    console.log(avatares)
 })
 
 // Elección de Nickname
-
 const form = document.getElementById("form")
 const userIngresado = document.getElementById("userIngresado")
 
@@ -61,7 +40,6 @@ let nickname
 
 
 // Palabras aleatorias para dibujar
-
 const palabrAleatorias = document.getElementById("palabrAleatorias")
 
 const objetos = ["Goma de borrar", "Lápiz", "Lapicera", "Mouse", "Televisor", "Inodoro", "Cuchara", "Bufanda", "Arroz", "Teléfono celular"]
@@ -74,7 +52,6 @@ const animales = ["con un gato", "con un leopardo", "con un lémur", "con un mon
 const animalAleatorio = Math.floor(Math.random() * animales.length)
 
 // Funciones principales para dibujar
-
 const canvas = document.getElementById("canvas")
 const context = canvas.getContext("2d")
 const colorUser = document.getElementById("color")
@@ -131,19 +108,16 @@ canvas.addEventListener("mouseout", function() {
 })
 
 // Comenzar juego
-
 const botonJugar = document.getElementById("botonJugar")
 const contBtnJugar = document.getElementById("containerBtnJugar")
 
 botonJugar.addEventListener('click', () => {
 
     // Mostrar en pantalla las oraciones para dibujar
-
     palabrAleatorias.innerText = objetos[objetoAleatorio] + " " + situaciones[situacionAleatoria] + " " + animales[animalAleatorio]
 
 
     // Función para calcular el tiempo del juego
-
     const tiempoRestante = document.getElementById("tiempoRestante")
     const palabrasTiempo = document.getElementById("palabrasTiempo")
 
@@ -170,6 +144,5 @@ botonJugar.addEventListener('click', () => {
     }, 1000)
 
     // Ocultar botón "Jugar"
-
     contBtnJugar.innerHTML = ""
 })
